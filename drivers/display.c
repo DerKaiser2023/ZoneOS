@@ -1,5 +1,10 @@
+#include <stdio.h>
 #include "display.h"
 #include "boot_image.h"
+
+void draw_pixel(int x, int y, char pixel) {
+    printf("Drawing '%c' at (%d, %d)\n", pixel, x, y);
+}
 
 #define FRAMEBUFFER_ADDR 0xA0000000  // Example framebuffer address
 

@@ -1,4 +1,6 @@
-#include "drivers/display/display.h"
+#include "drivers/display.h"
+#include "gps/gps.h"
+#include "ui/map.h"
 
 void kernel_main() {
     display_init();
