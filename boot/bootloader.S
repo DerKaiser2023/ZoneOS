@@ -10,7 +10,7 @@ _start:
     ldr r0, =boot_image_data /* load boot image data */
 
     /* Play boot sound */
-    bl play_bootsound
+    bl play_beep
 
     /* Jump to kernel */
     ldr r0, =kernel_main
