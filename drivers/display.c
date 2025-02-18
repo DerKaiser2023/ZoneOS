@@ -1,4 +1,5 @@
 #include "display.h"
+#include "boot_image.h"
 
 #define FRAMEBUFFER_ADDR 0xA0000000  // Example framebuffer address
 
@@ -16,4 +17,10 @@ void display_clear() {
 
 void display_print(const char *msg) {
     // Placeholder text rendering
+}
+
+void display_draw_image(const unsigned int *image_data) {
+    for (int i = 0; i < (320 * 240); i++) {
+        fb[i] = image_data[i]; // Copy pixel data to framebuffer
+    }
 }
