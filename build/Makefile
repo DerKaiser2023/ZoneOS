@@ -7,8 +7,11 @@ LDFLAGS = -T ../boot/linker.ld
 SRC = ../kernel/kernel.c \
       ../drivers/display.c \
       ../drivers/input.c \
+      ..drivers/audio.c \
       ../gps/gps.c \
-      ../ui/map.c
+      ../ui/map.c \
+      ../ui/notifications.c \
+      ../ui/task.c # Added task.c
 
 # Object files
 OBJS = $(SRC:.c=.o)

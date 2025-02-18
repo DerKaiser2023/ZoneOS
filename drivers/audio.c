@@ -8,3 +8,8 @@ void play_beep() {
         *audio = (i % 100) < 50 ? 1 : 0;  // Simple square wave
     }
 }
+
+void play_sound() {
+    // TODO: Implement real sound output (use a buzzer or speaker)
+    printf("[BEEP] Notification sound played.\n");
+}
