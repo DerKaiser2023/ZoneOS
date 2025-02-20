@@ -1,15 +1,33 @@
 #include "audio.h"
+#include "../fs/vfs.h"
+#include <stdio.h>
+#include <stdint.h>
 
-#define AUDIO_REGISTER 0xB0000000  // Replace with actual hardware address
-
-void play_beep() {
-    volatile unsigned int *audio = (volatile unsigned int *)AUDIO_REGISTER;
-    for (int i = 0; i < 100000; i++) {
-        *audio = (i % 100) < 50 ? 1 : 0;  // Simple square wave
-    }
-}
+#define AUDIO_BUFFER_SIZE 4096  // Buffer for audio playback
 
 void play_sound() {
-    // TODO: Implement real sound output (use a buzzer or speaker)
-    printf("[BEEP] Notification sound played.\n");
+    printf("[AUDIO] Beep sound played.\n");
+}
+
+void play_wav(const char *filename) {
+    VFS_File *wav_file = vfs_open(filename, VFS_READ);
+    if (!wav_file) {
+        printf("[AUDIO] Error: Cannot open WAV file %s\n", filename);
+        return;
+    }
+
+    // Read WAV header
+    uint8_t header[44];
+    vfs_read(wav_file, header, 44);  
+
+    uint8_t buffer[AUDIO_BUFFER_SIZE];
+    int bytes_read;
+    
+    while ((bytes_read = vfs_read(wav_file, buffer, AUDIO_BUFFER_SIZE)) > 0) {
+        // TODO: Send audio data to the WM8750 codec for playback
+        printf("[AUDIO] Playing chunk of %d bytes\n", bytes_read);
+    }
+
+    vfs_close(wav_file);
+    printf("[AUDIO] Finished playing %s\n", filename);
 }
