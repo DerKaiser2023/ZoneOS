@@ -5,8 +5,10 @@ LDFLAGS = -T ../boot/linker.ld
 
 # List of source files
 SRC = ../kernel/kernel.c \
+      ../installer/setup.c \
       ../drivers/display.c \
       ../drivers/input.c \
+      ../drivers/storage.c \
       ..drivers/audio.c \
       ../gps/gps.c \
       ../ui/map.c \
