@@ -20,6 +20,7 @@ void kernel_main() {
     display_clear();
     display_print("ZoneOS Is Booting...\n");
 
+    fat32_init();
     init_gps();
     init_notifications();
     init_tasks(); // Start task system

@@ -4,14 +4,13 @@
 #include "../drivers/display.h"
 #include "../drivers/audio.h"
 
-#define NOTIF_COUNT 5
+#define NOTIF_COUNT 4
 
 const char *notifications[NOTIF_COUNT] = {
     "Reminder: Check your GPS!",
     "Weather Alert: Stay safe!",
     "New Message Received!",
-    "Battery Low: Plug in soon!",
-    "Tip: You can zoom the map!"
+    "Warning: Battery Low!",
 };
 
 int next_notification_time = 0;
