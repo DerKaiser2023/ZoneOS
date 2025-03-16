@@ -8,3 +8,4 @@ i think thats it
 
 note: i have not tested this so im 99.9999999% sure this flaming garbage doesnt work at all.
 i will work on a compiled installer for the os later.
+i will never get back the month of work i spent working on this garbage.
